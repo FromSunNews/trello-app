@@ -1,0 +1,22 @@
+@import "_setting.scss";
+
+$common-element-bg: rgba(255, 255, 255, .24);
+
+.board-contents {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: $grap;
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $common-element-bg;
+        border-radius: 8px;
+    }
+}
