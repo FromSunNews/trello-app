@@ -42,7 +42,7 @@ $list-bg-color: #ebecf0;
         border-bottom-right-radius: $column-border-radius;
     }
 
-    ul.task-list {
+    ul.card-list {
         list-style-type: none;
         margin: 0;
         max-height: calc(100% - #{$column-header-height} - #{$column-footer-height});
