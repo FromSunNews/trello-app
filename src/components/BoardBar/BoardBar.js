@@ -1,6 +1,6 @@
 import React from 'react'
-import "_setting.scss";
-import "./BoardBar.scss";
+import '_setting.scss'
+import './BoardBar.scss'
 
 function BoardBar() {
     return (

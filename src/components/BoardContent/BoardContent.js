@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import "_setting.scss";
-import "./BoardContent.scss";
-import Column from 'components/Column/Column';
+import '_setting.scss'
+import './BoardContent.scss'
+import Column from 'components/Column/Column'
 
-import { mapOrder } from 'utilities/sorts';
+import { mapOrder } from 'utilities/sorts'
 
 import { initialData } from 'actions/initialData'
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'lodash'
 function BoardContent() {
     const [board, setBoard] = useState({})
     const [columns, setColumns] = useState([])
@@ -18,7 +18,7 @@ function BoardContent() {
             //sort column
             // boardFromDB.columns.sort((a, b) => {
             //     return (boardFromDB.columnOrder.indexOf(a.id) - boardFromDB.columnOrder.indexOf(b.id))
-            // });
+            // }) 
 
             setColumns(mapOrder(boardFromDB.columns, boardFromDB.columnOrder, 'id'))
         }
