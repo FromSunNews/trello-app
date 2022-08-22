@@ -3,9 +3,9 @@
 $common-element-bg: rgba(255, 255, 255, .24);
 
 .board-contents {
-    display: flex;
+    height: $board-content-height;
     overflow-x: auto;
-    margin-bottom: $grap;
+    overflow-y: hidden;
 
     &::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -18,5 +18,11 @@ $common-element-bg: rgba(255, 255, 255, .24);
     &::-webkit-scrollbar-thumb {
         background-color: $common-element-bg;
         border-radius: 8px;
+    }
+
+    .column-drop-preview {
+        background-color: rgba(150, 150, 200, 0.1);
+        border: 1px dashed #abc;
+        margin: 5px 45px 5px 5px;
     }
 }
