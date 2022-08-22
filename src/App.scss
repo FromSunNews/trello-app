@@ -19,7 +19,6 @@ body {
 
 .trello-app-master {
   height: 100vh;
-  display: grid;
-  grid-template-rows: 40px 50px 1fr;
+  overflow: hidden;
   background-color: $board-bg-color;
 }

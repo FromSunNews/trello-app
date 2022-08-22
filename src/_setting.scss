@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600");
 
 $grap : 10px;
-
+//appboard + boardbar + boardconent = 99vh
+$navbar-app-height : 5vh;
+$navbar-board-height: 6vh;
+$board-content-height : 88vh;
 //Screens
 $screen-lg: 1201px;
 $screen-md: 992px;
