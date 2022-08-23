@@ -3,7 +3,6 @@
 $column-header-height: 36px;
 $column-footer-height: 36px;
 $card-border-radius: 5px;
-$list-bg-color: #ebecf0;
 $column-height: calc(#{$board-content-height} - #{$grap * 2});
 
 .column {
@@ -29,7 +28,7 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
     }
 
     footer {
-        padding-left: 15px;
+        padding-left: 10px;
         height: $column-footer-height;
         line-height: $column-footer-height;
         font-weight: bold;
@@ -38,7 +37,7 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
         color: #888;
 
         .footer-actions {
-            padding-left: $grap;
+            padding-left: 5px;
             cursor: pointer;
 
             &:hover {

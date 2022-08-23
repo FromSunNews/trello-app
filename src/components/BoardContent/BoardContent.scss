@@ -28,20 +28,49 @@ $common-element-bg: rgba(255, 255, 255, .24);
     }
 
     .add-new-column {
-        width: 180px;
-        height: 32px;
+        width: 250px;
+        max-width: 250px;
         line-height: 32px;
         padding: 4px 0px 4px 15px;
         cursor: pointer;
         color: white;
-        margin-left: 15px;
+        margin-left: $grap;
         font-size: 15px;
-        background-color: hsla(0, 0%, 100%, .24);
-        margin-right: 15px;
+        background-color: rgba(255, 255, 255, 0.24);
+        margin-right: $grap;
         border-radius: $column-border-radius;
+        line-height: 32px;
 
         &:hover {
-            background-color: hsla(0, 0%, 100%, .34);
+            background-color: hsla(0, 0%, 100%, .44);
+        }
+    }
+
+    .enter-new-column {
+        width: 250px;
+        max-width: 250px;
+        background-color: $list-bg-color;
+        line-height: 32px;
+        padding: 4px 10px;
+        margin-left: $grap;
+        border-radius: $column-border-radius;
+
+        input.input-enter-new-column {
+            margin: 5px 0;
+        }
+
+        span.cancel-new-column {
+            margin-left: $grap;
+
+            i {
+                font-size: 20px;
+                color: $color-danger;
+
+                &:hover {
+                    cursor: pointer;
+                    color: darken($color-danger, 10);
+                }
+            }
         }
     }
 }
