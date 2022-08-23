@@ -3,6 +3,7 @@
 $common-element-bg: rgba(255, 255, 255, .24);
 
 .board-contents {
+    display: flex;
     height: $board-content-height;
     overflow-x: auto;
     overflow-y: hidden;
@@ -24,5 +25,23 @@ $common-element-bg: rgba(255, 255, 255, .24);
         background-color: rgba(150, 150, 200, 0.1);
         border: 1px dashed #abc;
         margin: 5px 45px 5px 5px;
+    }
+
+    .add-new-column {
+        width: 180px;
+        height: 32px;
+        line-height: 32px;
+        padding: 4px 0px 4px 15px;
+        cursor: pointer;
+        color: white;
+        margin-left: 15px;
+        font-size: 15px;
+        background-color: hsla(0, 0%, 100%, .24);
+        margin-right: 15px;
+        border-radius: $column-border-radius;
+
+        &:hover {
+            background-color: hsla(0, 0%, 100%, .34);
+        }
     }
 }
