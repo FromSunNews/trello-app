@@ -2,7 +2,6 @@
 
 $column-header-height: 36px;
 $column-footer-height: 36px;
-$column-border-radius: 5px;
 $card-border-radius: 5px;
 $list-bg-color: #ebecf0;
 $column-height: calc(#{$board-content-height} - #{$grap * 2});
@@ -15,7 +14,6 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
 
     >* {
         background-color: $list-bg-color;
-        color: #333;
         padding: 0 8px;
     }
 
@@ -37,6 +35,16 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
         font-weight: bold;
         border-bottom-left-radius: $column-border-radius;
         border-bottom-right-radius: $column-border-radius;
+        color: #888;
+
+        .footer-actions {
+            padding-left: $grap;
+            cursor: pointer;
+
+            &:hover {
+                color: $app-main-text-color;
+            }
+        }
     }
 
     .card-list {
@@ -60,12 +68,14 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
 
         .card-ghost {
             transition: transform 0.18s ease;
-            transform: rotateZ(5deg)
+            transform: rotateZ(5deg);
+            font-weight: bold;
         }
 
         .card-ghost-drop {
             transition: transform 0.18s ease-in-out;
-            transform: rotateZ(0deg)
+            font-weight: bold;
+            transform: rotateZ(0deg);
         }
 
         .card-drop-preview {
