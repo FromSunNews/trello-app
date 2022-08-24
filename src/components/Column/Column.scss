@@ -17,7 +17,7 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
     }
 
     header.column-drag-handle {
-        padding-left: 15px;
+        padding: 5px 8px;
         height: $column-header-height;
         line-height: $column-header-height;
         font-size: 16px;
@@ -25,6 +25,55 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         cursor: pointer;
+        display: flex;
+
+        .column-title {
+            flex: 90%;
+        }
+
+        .form-control {
+            padding: 0.2rem 0.4rem;
+        }
+
+        .column-dropdown-actions {
+            flex: 10%;
+
+            button.dropdown-btn {
+                padding: 0 $grap;
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                background-color: $list-bg-color;
+                border-color: $list-bg-color;
+                color: $app-main-text-color;
+                margin-bottom: 5px;
+
+                &::after {
+                    content: '...';
+                    border: none;
+                }
+
+                &:hover {
+                    background-color: darken($list-bg-color, 10);
+                    border-color: darken($list-bg-color, 10);
+                }
+            }
+
+            .dropdown-menu {
+                padding: 0;
+                min-width: 200px;
+
+                a.dropdown-item {
+                    padding: 0.1rem 1rem;
+                    font-size: 14px;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid darken($list-bg-color, 10);
+                    }
+                }
+            }
+        }
+
     }
 
     footer {
@@ -47,6 +96,7 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
     }
 
     .card-list {
+        padding-top: 10px;
         margin: 0;
         max-height: calc(#{$column-height} - #{$column-header-height} - #{$column-footer-height});
         overflow-y: auto;

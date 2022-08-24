@@ -51,10 +51,10 @@ export const initialData = {
                 {
                     id: 'column-4',
                     boardId: 'board-1',
-                    title: 'Done column',
+                    title: 'Hi column',
                     cardOrder: ['card-15', 'card-16'],
                     cards: [
-                        { id: 'card-15', boardId: 'board-1', columnId: 'column-4', title: 'Title of card 15 of col 3', cover: null },
+                        { id: 'card-15', boardId: 'board-1', columnId: 'column-4', title: 'Title of card 15 of col 4', cover: null },
                         { id: 'card-16', boardId: 'board-1', columnId: 'column-4', title: 'Title of card 16 of col 4', cover: null }
                     ]
                 }
