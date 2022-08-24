@@ -1,7 +1,7 @@
 @import "_setting.scss";
 
-$column-header-height: 36px;
-$column-footer-height: 36px;
+$column-header-height: 44px;
+$column-footer-height: 44px;
 $card-border-radius: 5px;
 $column-height: calc(#{$board-content-height} - #{$grap * 2});
 
@@ -46,7 +46,7 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
                 background-color: $list-bg-color;
                 border-color: $list-bg-color;
                 color: $app-main-text-color;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
 
                 &::after {
                     content: '...';
@@ -79,6 +79,7 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
     footer {
         padding-left: 10px;
         height: $column-footer-height;
+        min-height: 10px;
         line-height: $column-footer-height;
         font-weight: bold;
         border-bottom-left-radius: $column-border-radius;
@@ -96,10 +97,11 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
     }
 
     .card-list {
-        padding-top: 10px;
         margin: 0;
+        padding-bottom: 5px;
         max-height: calc(#{$column-height} - #{$column-header-height} - #{$column-footer-height});
         overflow-y: auto;
+        min-height: 0px;
 
         &::-webkit-scrollbar {
             -webkit-appearance: none;
@@ -131,6 +133,19 @@ $column-height: calc(#{$board-content-height} - #{$grap * 2});
             background-color: rgba(150, 150, 200, 0.1);
             border: 1px dashed #abc;
             margin: 5px;
+        }
+
+        .card-new-card-area {
+            .input-enter-new-card {
+                min-height: 54px;
+                max-height: 162px;
+
+            }
+
+        }
+
+        div.card-new-card-actions {
+            line-height: 20px;
         }
 
     }

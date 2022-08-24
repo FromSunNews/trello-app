@@ -16,7 +16,12 @@ import { Container as BootstrapContainer, Col, Row, Form, Button } from 'react-b
 function BoardContent() {
     const [board, setBoard] = useState({})
     const [columns, setColumns] = useState([])
+
     const [openNewColumnForm, setOpenNewColumnForm] = useState(false)
+    const toggleOpenNewColumnForm = () => {
+        setOpenNewColumnForm(!openNewColumnForm)
+    }
+
     const [newColumnTitle, setNewColumnTitle] = useState('')
     const newColumnInputRef = useRef(null)
 
@@ -50,7 +55,6 @@ function BoardContent() {
         let newBoard = { ...board }
         newBoard.columnOrder = newColumns.map(column => column.id)
         newBoard.columns = newColumns
-        console.log(newBoard)
 
         setColumns(newColumns)
         setBoard(newBoard)
@@ -66,9 +70,7 @@ function BoardContent() {
             })
         }
     }
-    const toggleOpenNewColumnForm = () => {
-        setOpenNewColumnForm(!openNewColumnForm)
-    }
+
     const addNewColumn = () => {
         if (!newColumnTitle) {
             newColumnInputRef.current.focus()
@@ -113,6 +115,9 @@ function BoardContent() {
         setColumns(newColumns)
         setBoard(newBoard)
     }
+    const onAddNewCardToColumn = (newColumn) => {
+        onUpdateColumn(newColumn)
+    }
     return (
         <div className="board-contents">
             <Container
@@ -130,7 +135,7 @@ function BoardContent() {
             >
                 {columns.map((column, index) => (
                     <Draggable key={index} >
-                        <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn} />
+                        <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn} onAddNewCardToColumn={onAddNewCardToColumn} />
                     </Draggable>)
                 )}
             </Container>
@@ -146,7 +151,7 @@ function BoardContent() {
                             <Form.Control
                                 size='small'
                                 type='text'
-                                placeholder='Enter column title'
+                                placeholder='Enter column title...'
                                 className='input-enter-new-column'
                                 ref={newColumnInputRef}
                                 value={newColumnTitle}
@@ -154,7 +159,7 @@ function BoardContent() {
                                 onKeyDown={e => (e.key === 'Enter') && addNewColumn()}
                             ></Form.Control>
                             <Button variant="success" size='small' onClick={addNewColumn}>Add column</Button>
-                            <span className='cancel-new-column'>
+                            <span className='cancel-icon'>
                                 <i className='fa fa-trash icon' onClick={toggleOpenNewColumnForm} />
                             </span>
                         </Col>

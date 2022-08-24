@@ -57,24 +57,10 @@ $common-element-bg: rgba(255, 255, 255, .24);
 
         input.input-enter-new-column {
             margin: 5px 0;
-
-            &:focus {
-                border-color: $input-border-color;
-            }
         }
 
-        span.cancel-new-column {
-            margin-left: $grap;
-
-            i {
-                font-size: 20px;
-                color: $color-danger;
-
-                &:hover {
-                    cursor: pointer;
-                    color: darken($color-danger, 10);
-                }
-            }
+        .form-control {
+            font-size: 14px;
         }
     }
 }

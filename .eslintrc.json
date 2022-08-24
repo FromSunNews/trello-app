@@ -36,8 +36,7 @@
             "always"
         ],
         "indent": [
-            "warn",
-            2
+            "off"
         ],
         "linebreak-style": 0,
         "semi": [
