@@ -15,6 +15,7 @@ body {
   font-size: 14px;
   line-height: 1.3em;
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 550;
 }
 
 .trello-app-master {
@@ -46,14 +47,30 @@ body {
   [type=tel].form-control:focus,
   [contenteditable].form-control:focus {
     box-shadow: none;
-    // border: 1px solid #ccc;
+    border: 1px solid $input-border-color;
+  }
+
+  .btn {
+    --bs-btn-font-size: 14px;
+    --bs-btn-line-height: 1.2;
+    --bs-btn-border-radius: 3px
   }
 
   .btn:focus,
   .btn:active {
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
   }
+
+  .input,
+  textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+
 
   .trello-content-editable {
     background-color: inherit;
@@ -64,7 +81,20 @@ body {
 
     &:focus {
       background-color: white;
-      border: 1px solid $input-border-color;
+    }
+  }
+
+  span.cancel-icon {
+    margin-left: $grap;
+
+    i {
+      font-size: 20px;
+      color: $color-danger;
+
+      &:hover {
+        cursor: pointer;
+        color: darken($color-danger, 10);
+      }
     }
   }
 }
