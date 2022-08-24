@@ -57,6 +57,10 @@ $common-element-bg: rgba(255, 255, 255, .24);
 
         input.input-enter-new-column {
             margin: 5px 0;
+
+            &:focus {
+                border-color: $input-border-color;
+            }
         }
 
         span.cancel-new-column {
