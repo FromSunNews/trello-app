@@ -13,7 +13,7 @@ import { Form, Button } from 'react-bootstrap'
 import { cloneDeep } from 'lodash'
 function Column(props) {
     const { column, onCardDrop, onUpdateColumn, onAddNewCardToColumn } = props
-    const cards = mapOrder(column.cards, column.cardOrder, 'id')
+    const cards = mapOrder(column.cards, column.cardOrder, '_id')
     const [showConfirmModal, setShowConfirmModal] = useState(false)
 
     const [newColumnTitle, setNewColumnTitle] = useState('')
@@ -68,14 +68,14 @@ function Column(props) {
         const newCardToAdd = {
             id: Math.random().toString(36).substring(2, 5),
             boardId: column.boardId,
-            columnId: column.id,
+            columnId: column._id,
             title: newCardTitle.trim(),
             cover: null
 
         }
         let newColumn = cloneDeep(column)
         newColumn.cards.push(newCardToAdd)
-        newColumn.cardOrder.push(newCardToAdd.id)
+        newColumn.cardOrder.push(newCardToAdd._id)
 
         onAddNewCardToColumn(newColumn)
 
@@ -114,7 +114,7 @@ function Column(props) {
             <div className="card-list">
                 <Container
                     groupName="col"
-                    onDrop={dropResult => onCardDrop(column.id, dropResult)}
+                    onDrop={dropResult => onCardDrop(column._id, dropResult)}
                     getChildPayload={index =>
                         cards[index]
                     }
