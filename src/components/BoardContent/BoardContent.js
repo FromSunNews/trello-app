@@ -10,7 +10,7 @@ import { isEmpty } from 'lodash'
 
 import { Container, Draggable } from 'react-smooth-dnd'
 import { flushSync } from 'react-dom'
-import { fetchBoardsDetail } from 'actions/ApiCall'
+import { fetchBoardsDetail, createNewColumn } from 'actions/ApiCall'
 
 import { Container as BootstrapContainer, Col, Row, Form, Button } from 'react-bootstrap'
 function BoardContent() {
@@ -26,7 +26,7 @@ function BoardContent() {
     const newColumnInputRef = useRef(null)
 
     useEffect(() => {
-        const boardId = '630a0f0969910d31b4ae1fe3'
+        const boardId = '630e7cb18078f85a78f8406f'
         fetchBoardsDetail(boardId).then(board => {
             console.log(board)
             setBoard(board)
@@ -72,25 +72,25 @@ function BoardContent() {
             return
         }
         const newColumnToAdd = {
-            id: Math.random().toString(36).substring(2, 5),
             boardId: board._id,
-            title: newColumnTitle.trim(),
-            cardOrder: [],
-            cards: []
+            title: newColumnTitle.trim()
         }
-        let newColumns = [...columns]
-        newColumns.push(newColumnToAdd)
+        //call api
+        createNewColumn(newColumnToAdd).then(column => {
+            let newColumns = [...columns]
+            newColumns.push(column)
 
-        let newBoard = { ...board }
-        newBoard.columnOrder = newColumns.map(column => column._id)
-        newBoard.columns = newColumns
-        setColumns(newColumns)
-        setBoard(newBoard)
+            let newBoard = { ...board }
+            newBoard.columnOrder = newColumns.map(column => column._id)
+            newBoard.columns = newColumns
+            setColumns(newColumns)
+            setBoard(newBoard)
 
-        setNewColumnTitle('')
-        setOpenNewColumnForm(!openNewColumnForm)
+            setNewColumnTitle('')
+            setOpenNewColumnForm(!openNewColumnForm)
+        })
     }
-    const onUpdateColumn = (newColumnToUpdate) => {
+    const onUpdateColumnState = (newColumnToUpdate) => {
         const columnIdToUpdate = newColumnToUpdate._id
         let newColumns = [...columns]
 
@@ -111,7 +111,7 @@ function BoardContent() {
         setBoard(newBoard)
     }
     const onAddNewCardToColumn = (newColumn) => {
-        onUpdateColumn(newColumn)
+        onUpdateColumnState(newColumn)
     }
     return (
         <div className="board-contents">
@@ -130,7 +130,7 @@ function BoardContent() {
             >
                 {columns.map((column, index) => (
                     <Draggable key={index} >
-                        <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn} onAddNewCardToColumn={onAddNewCardToColumn} />
+                        <Column column={column} onCardDrop={onCardDrop} onUpdateColumnState={onUpdateColumnState} onAddNewCardToColumn={onAddNewCardToColumn} />
                     </Draggable>)
                 )}
             </Container>
