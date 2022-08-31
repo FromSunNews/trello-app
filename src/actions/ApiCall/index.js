@@ -6,6 +6,11 @@ export const fetchBoardsDetail = async (boardId) => {
   return request.data
 }
 
+export const updateBoard = async (boardId, boardData) => {
+  const request = await axios.put(`${API_ROOT}/v1/boards/${boardId}`, boardData)
+  return request.data
+}
+
 export const createNewColumn = async (columnData) => {
   const request = await axios.post(`${API_ROOT}/v1/columns`, columnData)
   return request.data
@@ -20,3 +25,9 @@ export const createNewCard = async (cardData) => {
   const request = await axios.post(`${API_ROOT}/v1/cards`, cardData)
   return request.data
 }
+
+export const updateCard = async (cardId, cardData) => {
+  const request = await axios.put(`${API_ROOT}/v1/cards/${cardId}`, cardData)
+  return request.data
+}
+
