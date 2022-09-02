@@ -31,6 +31,7 @@ function Column(props) {
 
     useEffect(() => {
         setNewColumnTitle(column.title)
+        console.log(column.title)
     }, [column.title])
 
     useEffect(() => {
