@@ -1,10 +1,99 @@
-@import "_setting.scss";
+@import '_setting.scss';
+@import 'App.scss';
 
-.navbar-board {
+.boardbar {
     height: $navbar-board-height ;
-    padding-left: $grap;
+    padding: 0 $grap;
     display: flex;
     align-items: center;
     background-color: $board-bg-color;
     font-size: 1.1rem;
+    justify-content: space-between;
+
+    .boardbar__right {
+        display: flex;
+    }
+
+    .boardbar__container-icon {
+        padding-right: 8px;
+        padding-left: 8px;
+        height: 35px;
+        background-color: $common-element-bg ;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $list-bg-color;
+        cursor: pointer;
+        margin: 0;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        .icon {
+            font-size: 1.1rem;
+        }
+
+        .boardbar__container-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 5px;
+        }
+    }
+
+
+
+    .boardbar__left {
+        display: flex;
+        align-items: center;
+
+        .boardbar__container--saperate {
+            content: '';
+            display: block;
+            height: 20px;
+            border: 0.5px solid $list-bg-color;
+            margin: 0 10px;
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .boardbar__avatar {
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            .boardbar__img {
+                height: 35px;
+                width: 35px;
+                object-fit: cover;
+                border-radius: 100px;
+            }
+        }
+
+        .boardbar__avatar+.boardbar__avatar {
+            margin-left: 3px;
+        }
+
+        .boardbar__number {
+            background-color: $common-element-bg;
+            height: 35px;
+            width: 35px;
+            border-radius: 100px;
+            display: flex;
+            margin-right: 10px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            .boardbar__text {
+                color: $list-bg-color;
+                margin: auto;
+            }
+        }
+    }
+
 }
